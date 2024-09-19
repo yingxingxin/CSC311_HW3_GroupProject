@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Image maze = new Image("maze.png");
         Image robot = new Image("robot.png");
+        //Comment
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Robot");
         stage.setScene(scene);
