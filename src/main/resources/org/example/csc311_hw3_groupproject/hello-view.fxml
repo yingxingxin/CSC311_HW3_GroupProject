@@ -3,21 +3,21 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
 
 <TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
     <Tab text="Maze 1">
-        <StackPane>
+        <Pane>
             <!-- First Maze and Robot -->
-            <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" />
-            <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" />
-        </StackPane>
+            <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="0" />
+            <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" layoutX="50" layoutY="100" />
+        </Pane>
     </Tab>
 
     <Tab text="Maze 2">
-        <StackPane>
+        <Pane>
             <!-- Second Maze -->
-            <ImageView fx:id="mazeView2" fitWidth="600" preserveRatio="true" />
-        </StackPane>
+            <ImageView fx:id="mazeView2" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="50" />
+        </Pane>
     </Tab>
 </TabPane>
