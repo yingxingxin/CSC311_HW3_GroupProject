@@ -20,8 +20,8 @@ public class MazeGame extends Application {
         ImageView robotView = new ImageView(robot);
         robotView.setFitWidth(20);  // Set robot size
         robotView.setFitHeight(20);
-        robotView.setX(50);  // Initial position for the robot
-        robotView.setY(50);
+        robotView.setX(20);  // Initial position for the robot
+        robotView.setY(20);
 
         //Comment
         Scene scene = new Scene(fxmlLoader.load(), 600, 550);

@@ -2,17 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.csc311_hw3_groupproject.MazeController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
+<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
     <!-- Maze Image -->
     <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" />
 
     <!-- Robot Image -->
     <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" />
-</VBox>
+</Pane>

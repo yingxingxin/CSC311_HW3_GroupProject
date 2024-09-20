@@ -16,8 +16,8 @@ public class MazeController {
         // Initialize your maze and robot positions if necessary
         mazeView.setImage(new Image("maze.png"));
         robotView.setImage(new Image("robot.png"));
-        robotView.setX(50);  // Initial robot position
-        robotView.setY(50);
+        robotView.setX(10);  // Initial robot position
+        robotView.setY(260);
     }
 
 
