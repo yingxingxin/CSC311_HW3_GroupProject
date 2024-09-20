@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
-<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
-    <!-- Maze Image -->
-    <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" />
+<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
+    <Tab text="Maze 1">
+        <StackPane>
+            <!-- First Maze and Robot -->
+            <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" />
+            <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" />
+        </StackPane>
+    </Tab>
 
-    <!-- Robot Image -->
-    <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" />
-</Pane>
+    <Tab text="Maze 2">
+        <StackPane>
+            <!-- Second Maze -->
+            <ImageView fx:id="mazeView2" fitWidth="600" preserveRatio="true" />
+        </StackPane>
+    </Tab>
+</TabPane>
