@@ -14,5 +14,5 @@
     <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" />
 
     <!-- Robot Image -->
-    <ImageView fx:id="robotView" fitWidth="50" fitHeight="50" />
+    <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" />
 </VBox>
