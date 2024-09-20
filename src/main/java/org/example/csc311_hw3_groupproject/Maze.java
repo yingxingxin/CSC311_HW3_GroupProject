@@ -23,9 +23,9 @@ public class Maze {
     }
 
     // Method to check if a given position (x, y) is a valid move
-    public boolean isValidMove(int x, int y) {
+    //public boolean isValidMove(int x, int y) {
 
-    }
+   // }
 
     // Getter method to access the ImageView for displaying the maze
     public ImageView getView() {
