@@ -1,34 +1,40 @@
 package org.example.csc311_hw3_groupproject;
 
-import javafx.scene.image.PixelReader;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelReader;
 import javafx.scene.paint.Color;
 
-public class Maze {
-    private Image mazeImage;
-    private ImageView mazeView;
-    private PixelReader mazePixelReader;
+public abstract class Maze {
 
-    // Constructor to load the maze image
+    protected Image mazeImage;
+    protected PixelReader mazePixelReader;
+    protected boolean isCarActive;
+
     public Maze(String mazeImagePath) {
-        // Load the image and create an ImageView to display it
-        this.mazeImage = new Image(mazeImagePath);
-        this.mazeView = new ImageView(mazeImage);
-        mazeView.setPreserveRatio(true);
-        mazeView.setFitWidth(600);
-
-        // Get the pixel reader to read individual pixels in the maze image
-        mazePixelReader = mazeImage.getPixelReader();
+        this.mazeImage = new Image(getClass().getResource(mazeImagePath).toExternalForm());
+        this.mazePixelReader = mazeImage.getPixelReader();
     }
 
-    // Method to check if a given position (x, y) is a valid move
-    //public boolean isValidMove(int x, int y) {
+    public void toggleVehicle() {
+        isCarActive = !isCarActive;
+    }
 
-   // }
+    public boolean isValidMove(int x, int y) {
+        if (x < 0 || y < 0 || x >= mazeImage.getWidth() || y >= mazeImage.getHeight()) {
+            return false;
+        }
+        Color color = mazePixelReader.getColor(x, y);
+        return !isWall(color);
+    }
 
-    // Getter method to access the ImageView for displaying the maze
-    public ImageView getView() {
-        return mazeView;  // Return the ImageView
+    private boolean isWall(Color color) {
+        return color.equals(Color.BLUE); // Assume walls are blue
+    }
+
+    public abstract void drawVehicle(GraphicsContext gc, double x, double y);
+
+    public Image getImage() {
+        return mazeImage;
     }
 }

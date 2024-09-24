@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.canvas.Canvas?>
 
-<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
+<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController"
+         onKeyPressed="#handleKeyPress">
+
+    <!-- First Tab for Maze 1 -->
     <Tab text="Maze 1">
         <Pane>
-            <!-- First Maze and Robot -->
-            <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="0" />
-            <ImageView fx:id="robotView" fitWidth="20" fitHeight="20" layoutX="50" layoutY="100" />
+            <!-- Canvas for drawing the maze and vehicle in Maze 1 -->
+            <Canvas fx:id="maze1Canvas" width="600" height="550" layoutX="0" layoutY="0"/>
+
+            <!-- Buttons to switch mazes and toggle vehicle -->
+            <Button text="Switch Maze" onAction="#switchMaze" layoutX="500" layoutY="500"/>
+            <Button text="Toggle Vehicle" onAction="#toggleVehicle" layoutX="400" layoutY="500"/>
         </Pane>
     </Tab>
 
+    <!-- Second Tab for Maze 2 -->
     <Tab text="Maze 2">
         <Pane>
-            <!-- Second Maze -->
-            <ImageView fx:id="mazeView2" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="50" />
+            <!-- Canvas for drawing the maze and vehicle in Maze 2 -->
+            <Canvas fx:id="maze2Canvas" width="600" height="550" layoutX="0" layoutY="0"/>
+
+            <!-- Buttons for switching mazes and toggling vehicle -->
+            <Button text="Switch Maze" onAction="#switchMaze" layoutX="500" layoutY="500"/>
+            <Button text="Toggle Vehicle" onAction="#toggleVehicle" layoutX="400" layoutY="500"/>
         </Pane>
     </Tab>
+
 </TabPane>
