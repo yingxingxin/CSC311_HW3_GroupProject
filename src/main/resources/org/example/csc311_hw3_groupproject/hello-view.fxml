@@ -18,6 +18,7 @@
             <!-- Buttons to switch mazes and toggle vehicle -->
             <Button text="Switch Maze" onAction="#switchMaze" layoutX="500" layoutY="500"/>
             <Button text="Toggle Vehicle" onAction="#toggleVehicle" layoutX="400" layoutY="500"/>
+            <Button text="Start Animation" onAction="#startAnimation" layoutX="500" layoutY="530"/>
         </Pane>
     </Tab>
 
@@ -30,6 +31,7 @@
             <!-- Buttons for switching mazes and toggling vehicle -->
             <Button text="Switch Maze" onAction="#switchMaze" layoutX="500" layoutY="500"/>
             <Button text="Toggle Vehicle" onAction="#toggleVehicle" layoutX="400" layoutY="500"/>
+            <Button text="Start Animation" onAction="#startAnimation" layoutX="500" layoutY="530"/>
         </Pane>
     </Tab>
 

@@ -1,9 +1,12 @@
 package org.example.csc311_hw3_groupproject;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 
 public class MazeController {
 
@@ -26,6 +29,8 @@ public class MazeController {
     private double vehicleY = 100;
     private double currentAngle = 0; // Keep track of current rotation angle
 
+    private Timeline animationTimeline;
+
     public void initialize() {
         // Initialize both canvases
         gc1 = maze1Canvas.getGraphicsContext2D();
@@ -47,6 +52,7 @@ public class MazeController {
     }
 
     private void drawVehicle() {
+        // Clear previous vehicle drawing and redraw maze and vehicle
         if (isMaze1Active) {
             gc1.clearRect(0, 0, maze1Canvas.getWidth(), maze1Canvas.getHeight());
             drawMaze();
@@ -60,6 +66,7 @@ public class MazeController {
 
     @FXML
     public void handleKeyPress(KeyEvent event) {
+        // Handle key press for vehicle movement
         switch (event.getCode()) {
             case UP:
                 if (isMaze1Active && maze1.isValidMove((int) vehicleX, (int) (vehicleY - MOVE_INCREMENT))) {
@@ -107,17 +114,50 @@ public class MazeController {
 
     @FXML
     public void switchMaze() {
+        // Toggle between Maze 1 and Maze 2
         isMaze1Active = !isMaze1Active;
         drawVehicle();
     }
 
     @FXML
     public void toggleVehicle() {
+        // Toggle between car and robot
         if (isMaze1Active) {
             maze1.toggleVehicle();
         } else {
             maze2.toggleVehicle();
         }
         drawVehicle();
+    }
+
+    @FXML
+    public void startAnimation() {
+        // Start animation to move the vehicle automatically
+        if (animationTimeline != null) {
+            animationTimeline.stop();  // Stop any running animation
+        }
+
+        animationTimeline = new Timeline(new KeyFrame(Duration.millis(500), event -> {
+            // Example automatic movement: move right and then down
+            if (isMaze1Active && maze1.isValidMove((int) (vehicleX + MOVE_INCREMENT), (int) vehicleY)) {
+                vehicleX += MOVE_INCREMENT;
+                currentAngle = 0;  // Face right
+            } else if (isMaze1Active && maze1.isValidMove((int) vehicleX, (int) (vehicleY + MOVE_INCREMENT))) {
+                vehicleY += MOVE_INCREMENT;
+                currentAngle = 90;  // Face down
+            } else if (!isMaze1Active && maze2.isValidMove((int) (vehicleX + MOVE_INCREMENT), (int) vehicleY)) {
+                vehicleX += MOVE_INCREMENT;
+                currentAngle = 0;  // Face right
+            } else if (!isMaze1Active && maze2.isValidMove((int) vehicleX, (int) (vehicleY + MOVE_INCREMENT))) {
+                vehicleY += MOVE_INCREMENT;
+                currentAngle = 90;  // Face down
+            }
+
+            // Redraw vehicle after automatic movement
+            drawVehicle();
+        }));
+
+        animationTimeline.setCycleCount(Timeline.INDEFINITE);
+        animationTimeline.play();  // Start the animation
     }
 }
