@@ -9,6 +9,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class carDrawing extends Application {
+
+    public GraphicsContext car;
     @Override
     public void start(Stage stage) {
         // Create the canvas
@@ -16,7 +18,7 @@ public class carDrawing extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         // Draw the car
-        drawCar(gc);
+        car = drawCar(gc);
 
         // Add canvas to the scene
         Group root = new Group();
@@ -27,7 +29,7 @@ public class carDrawing extends Application {
         stage.show();
     }
 
-    private void drawCar(GraphicsContext gc) {
+    private GraphicsContext drawCar(GraphicsContext gc) {
         // Set car body color to purple
         gc.setFill(Color.PURPLE);
 
@@ -44,6 +46,7 @@ public class carDrawing extends Application {
         gc.setFill(Color.BLACK);
         gc.fillOval(60, 130, 30, 30);  // Rear wheel
         gc.fillOval(160, 130, 30, 30); // Front wheel
+        return gc;
     }
 
     public static void main(String[] args) {
