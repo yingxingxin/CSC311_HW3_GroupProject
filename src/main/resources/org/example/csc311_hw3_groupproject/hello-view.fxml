@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.csc311_hw3_groupproject.MazeController">
-    <Tab fx:id="Maze1" text="Maze 1">
+    <Tab text="Maze 1">
         <Pane>
             <!-- First Maze and Robot -->
             <ImageView fx:id="mazeView" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="0" />
@@ -14,7 +14,7 @@
         </Pane>
     </Tab>
 
-    <Tab fx:id="Maze2" text="Maze 2">
+    <Tab text="Maze 2">
         <Pane>
             <!-- Second Maze -->
             <ImageView fx:id="mazeView2" fitWidth="600" preserveRatio="true" layoutX="0" layoutY="50" />
